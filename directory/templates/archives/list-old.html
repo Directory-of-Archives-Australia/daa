@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+{% if letter %}
+<p>{{ letter }}</p>
+{% endif %}
+<ul>
+{% for archive in archives_list %}
+<li><a href="/archive/{{ archive.daa_id }}">{{ archive.name }}</a></li>
+{% endfor %}
+</ul>
+{% if has_previous %}
+<p><a href="/archives/page{{ previous }}">Previous</a></p>
+{% endif %}
+{% if has_next %}
+<p><a href="{{ path }}/page{{ next }}">Next</a></p>
+{% endif %}
+</body>
+</html>

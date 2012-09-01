@@ -1,0 +1,6 @@
+{{ object.name }}
+{{ object.facilities }}
+{{ object.focus}}
+{{ object.holdings }}
+{{ object.guides }}
+{{ object.references }}

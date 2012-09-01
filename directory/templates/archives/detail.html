@@ -1,0 +1,108 @@
+{% extends 'archives/base.html' %}
+{% block title %}Directory of Archives in Australia -- {{ archive.name }}{% endblock %}
+{% block content %}
+<div id="content">
+<div class="detail-page-nav">
+{% if state %}
+{% if archive.get_previous_in_state %}<a class="page-nav-next" href="/archives/{{ archive.get_previous_in_state.0.daa_id }}/?state={{ state }}">&laquo;</a>{% endif %}
+{% if archive.get_next_in_state %}<a class="page-nav-next" href="/archives/{{ archive.get_next_in_state.0.daa_id }}/?state={{ state }}">&raquo;</a>{% endif %}
+{% else %}
+{% if archive.get_previous %}<a class="page-nav-next" href="/archives/{{ archive.get_previous.0.daa_id }}">&laquo;</a>{% endif %}
+{% if archive.get_next %}<a class="page-nav-next" href="/archives/{{ archive.get_next.0.daa_id }}">&raquo;</a>{% endif %}
+{% endif %}
+</div>
+<h2 class="archive">{{ archive.name }}</h2>
+<div id="contact">
+<h3>Contact</h3>
+<dl>
+{% if archive.address %}
+<dt>Street address</dt>
+<dd>{{ archive.address|safe }}</dd>
+{% endif %}
+{% if archive.postal_address %}
+<dt>Postal address</dt>
+<dd>{{ archive.postal_address|safe }}</dd>
+{% endif %}
+{% if archive.phone %}
+<dt>Phone</dt>
+<dd>{{ archive.phone }}</dd>
+{% endif %}
+{% if archive.fax %}
+<dt>Fax</dt>
+<dd>{{ archive.fax }}</dd>
+{% endif %}
+{% if archive.email %}
+<dt>Email</dt>
+<dd><a href="mailto:{{ archive.email }}">{{ archive.email }}</a></dd>
+{% endif %}
+{% if archive.website %}
+<dt>Website</dt>
+<dd><a href="{{ archive.website }}">{{ archive.website }}</a></dd>
+{% endif %}
+{% if archive.enquiries %}
+<dt>Enquiries to</dt>
+<dd>{{ archive.enquiries|safe }}</dd>
+{% endif %}
+{% if archive.notes %}
+<dt>Note</dt>
+<dd>{{ archive.notes|safe }}</dd>
+{% endif %}
+
+</dl>
+</div>
+<div id="about" class="clearfix">
+<h3>About</h3>
+<dl>
+{% if archive.officer %}
+<dt>Officer in charge</dt>
+<dd>{{ archive.officer }}</dd>
+{% endif %}
+{% if archive.facilities %}
+<dt>Hours &amp; facilities</dt>
+<dd>{{ archive.facilities|safe }}</dd>
+{% endif %}
+{% if archive.access %}
+<dt>Access</dt>
+<dd>{{ archive.access|safe }}</dd>
+{% endif %}
+{% if archive.focus %}
+<dt>Acquisition focus</dt>
+<dd>{{ archive.focus|safe }}</dd>
+{% endif %}
+{% if archive.quantity %}
+<dt>Quantity</dt>
+<dd>{{ archive.quantity }}</dd>
+{% endif %}
+{% if archive.holdings %}
+<dt>Major holdings</dt>
+<dd>{{ archive.holdings|safe }}</dd>
+{% endif %}
+{% if archive.guides %}
+<dt>Guides</dt>
+<dd>{{ archive.guides|safe }}</dd>
+{% endif %}
+{% if archive.references %}
+<dt>References</dt>
+<dd>{{ archive.references|safe }}</dd>
+{% endif %}
+{% if archive.see_also %}
+<dt>See also</dt>
+<dd>{{ archive.see_also|safe }}</dd>
+{% endif %}
+</dl>
+</div>
+
+<div class="detail-page-nav clearfix">
+{% if state %}
+{% if archive.get_previous_in_state %}<a class="page-nav-next" href="/archives/{{ archive.get_previous_in_state.0.daa_id }}/?state={{ state }}">&laquo;</a>{% endif %}
+{% if archive.get_next_in_state %}<a class="page-nav-next" href="/archives/{{ archive.get_next_in_state.0.daa_id }}/?state={{ state }}">&raquo;</a>{% endif %}
+{% else %}
+{% if archive.get_previous %}<a class="page-nav-next" href="/archives/{{ archive.get_previous.0.daa_id }}">&laquo;</a>{% endif %}
+{% if archive.get_next %}<a class="page-nav-next" href="/archives/{{ archive.get_next.0.daa_id }}">&raquo;</a>{% endif %}
+{% endif %}
+</div>
+{% if archive.last_updated %}
+<p class="updated">Last updated: {{ archive.last_updated }}</p>
+{% endif %}
+</div>
+{% endblock %}

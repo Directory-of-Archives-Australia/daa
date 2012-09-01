@@ -1,0 +1,92 @@
+{% extends 'archives/base.html' %}
+{% load archives_extras %}
+{% block title %}Directory of Archives in Australia -- Browse{% endblock %}
+{% block content %}
+<div id="content">
+<h2>Browse
+{% if not letter and not state %}
+ all</h2>
+{% endif %}
+{% if letter %}
+ archives starting with &lsquo;{{ letter.upper }}&rsquo;</h2>
+{% endif %}
+{% if state %}
+ archives in {{ state|get_state }}</h2>
+{% endif %}
+<div class="browse-nav">
+{% if letters %}
+<p id="letters" class="clearfix">
+{% for l in letters %}
+{% ifequal l letter %}
+<span class="letter-current">{{ l.upper }}</span>
+{% else %}
+<a class="letter" href="/archives/{{ l }}/">{{ l.upper }}</a>
+{% endifequal %}
+{% endfor %}
+</p>
+{% endif %}
+{% if states %}
+<p id="states" class="clearfix">
+{% for s in states %}
+{% ifequal s.lower state.lower %}
+<span class="state-current">{{ s }}</span>
+{% else %}
+<a class="state" href="/archives/{{ s.lower }}/">{{ s }}</a>
+{% endifequal %}
+{% endfor %} 
+</p>
+{% endif %}
+</div>
+<div class="results">
+{% ifnotequal paginator.num_pages 1 %}
+<div class="page-nav clearfix">
+{% if has_previous %}
+<div><a class="page-nav-previous" href="{{ path }}/page{{ previous }}">&laquo;</a></div>
+{% endif %}
+<div class="pages">
+{% for p in paginator.page_range %}
+{% ifnotequal p page %}
+<a href="{{ path }}/page{{ p }}/">{{ p }}</a>
+{% else %}
+{{ page }}
+{% endifnotequal %}
+{% if not forloop.last %}
+ | 
+{% endif %}
+{% endfor %}
+</div>
+{% if has_next %}
+<div><a class="page-nav-next" href="{{ path }}/page{{ next }}">&raquo;</a></div>
+{% endif %}
+</div>
+{% endifnotequal %}
+<ul>
+{% for archive in archives_list %}
+<li class="{% cycle 'odd' 'even' %}"><a href="/archives/{{ archive.daa_id }}/{% if state %}?state={{ state }}{% endif %}">{{ archive.name }}</a></li>
+{% endfor %}
+</ul>
+{% ifnotequal paginator.num_pages 1 %}
+<div class="page-nav clearfix">
+{% if has_previous %}
+<div><a class="page-nav-previous" href="{{ path }}/page{{ previous }}">&laquo;</a></div>
+{% endif %}
+<div class="pages">
+{% for p in paginator.page_range %}
+{% ifnotequal p page %}
+<a href="{{ path }}/page{{ p }}/">{{ p }}</a>
+{% else %}
+{{ page }}
+{% endifnotequal %}
+{% if not forloop.last %}
+ | 
+{% endif %}
+{% endfor %}
+</div>
+{% if has_next %}
+<div><a class="page-nav-next" href="{{ path }}/page{{ next }}">&raquo;</a></div>
+{% endif %}
+</div>
+{% endifnotequal %}
+</div>
+</div>
+{% endblock %}

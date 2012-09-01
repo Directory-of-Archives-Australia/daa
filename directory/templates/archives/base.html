@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>{% block title %}{% endblock %}</title>
+<style>
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+html, body {
+	height:100%;
+}
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Arial, Tahoma, sans-serif;
+	background-color: #EFFFFF;
+}
+#content-bg {
+	height: auto !important;
+	margin-bottom: -70px;
+	min-height: 100%;
+}
+#header-bg {
+	background-color: #49817E;
+	margin: 0 0 10px 0;
+	height: 100px;
+	padding: 5px 0 5px 0;
+	border-bottom: 5px solid #5D9C9A;
+}
+#header {
+	width: 770px;
+	margin: auto;
+}
+#content-bg #footer-push {
+	height: 70px;
+}
+#footer-bg {
+	height:55px;
+	position:relative;
+	background-color: #49817E;
+	padding-top: 10px;
+	border-top: 5px solid #5D9C9A;
+	margin-top: 10px;
+}
+#footer {
+	width: 770px;
+	margin: auto;
+	color: #EFFFFF;
+	font-size: 0.9em;
+}
+h1 {
+	margin: 0;
+	font-weight: normal;
+	color: #EFFFFF;
+	font-size: 2.5em;
+}
+h2 {
+	margin: 0;
+	padding: 0;
+	color: #1A1A1A;
+}
+h2.archive {
+	margin-bottom: 20px;
+}
+#contact h3, #about h3 {
+	margin: 0;
+}
+a {
+	color: #992200;
+}
+a:hover {
+	color: #FF0000;
+}
+#logo {
+	float: left;
+	margin-right: 1em;
+	border: none;
+}
+#nav-options {
+	text-align: right;
+	color: #EFFFFF;
+	font-size: 1.5em;
+	margin-top: 10px;
+}
+#nav-options a {
+	color: #EFFFFF;
+	text-decoration: none;
+}
+#nav-options a:hover {
+	color: #992200;
+}
+#content {
+	width: 748px;
+	padding: 10px 10px 10px 10px;
+	-moz-border-radius: 10px; 
+	-webkit-border-radius: 10px; 
+	border-radius: 10px;
+	border: 1px solid #77776F;
+	margin: auto;
+	background-color: #FFFFEE;
+}
+#search-form {
+	text-align: center;
+}
+#id_q-home, #id_q {
+	width: 470px;
+	font-size: 1.4em;
+	-moz-border-radius: 5px; 
+	-webkit-border-radius: 5px; 
+	border-radius: 5px;
+}
+#id_q-home {
+	margin-bottom: 100px;
+}
+#id_q {
+	margin: 20px 0 40px 0;
+}
+.welcome {
+	font-size: 1.4em;
+	text-align: center;
+	color: #77776F;
+}
+.search-button {
+	background-color: #992200;
+	color: #FFFFEE;
+	-moz-border-radius: 5px; 
+	-webkit-border-radius: 5px; 
+	border-radius: 5px;
+	border: 1px solid #992200;
+	font-size: 1.4em;
+	cursor: pointer; 
+}
+#footer a {
+	color: #EFFFFF;
+	text-decoration: none;
+}
+#footer a:hover {
+	color: #992200;
+}
+#asa-byline {
+	float: right;
+}
+.results {
+	border: 1px solid #999999;
+}
+ul {
+	list-style-type: none;
+	padding: 0;
+	clear: left;
+	margin: 0;
+}
+li {
+	margin: 0;
+	margin-bottom: 0px;
+	padding: 10px;	
+}
+li.even {
+	background-color: #EFefef;
+}
+li.odd {
+	background-color: #dfdfdf;
+}
+a.letter, a.state {
+	-moz-border-radius: 2px; 
+	-webkit-border-radius: 2px; 
+	border-radius: 2px;
+	border: 1px solid #992200;
+	display: block;
+	float: left;
+	text-align: center;
+	background-color: #992200;
+	margin-right: 2px;
+	color: #EFFFFF;
+	text-decoration: none;
+}
+.letter, .letter-current {
+	width: 1em;
+}
+.state, .state-current {
+	padding: 0 2px 0 2px;
+}
+
+.state-current, .letter-current {
+	-moz-border-radius: 2px; 
+	-webkit-border-radius: 2px; 
+	border-radius: 2px;
+	border: 1px solid #992200;
+	display: block;
+	float: left;
+	text-align: center;
+	background-color: #EFFFFF;
+	margin-right: 2px;
+	color: #992200;
+}
+
+a.letter:hover, a.state:hover {
+	background-color: #FF0000;
+	color: #EFFFFF;
+	border: 1px solid #FF0000;
+}
+.browse-nav {
+	margin: 10px 0 20px 0;
+}
+.page-nav {
+	margin: 2px 0 2px 0;
+}
+.clear {
+	clear: both;
+}
+a.page-nav-next, a.page-nav-previous {
+	-moz-border-radius: 2px; 
+	-webkit-border-radius: 2px; 
+	border-radius: 2px;
+	border: 1px solid #992200;
+	display: block;
+	text-align: center;
+	background-color: #992200;
+	color: #EFFFFF;
+	text-decoration: none;
+	width: 1em;
+	float: left;
+	margin: 0 2px 0 2px;
+}
+a.page-nav-next:hover, a.page-nav-previous:hover {
+	background-color: #FF0000;
+	color: #EFFFFF;
+	border: 1px solid #FF0000;
+}
+.pages {
+	text-align: center;
+	font-size: 0.9em;
+	float: left;
+	margin: 0;
+	margin-left: 2px;
+	margin-right: 2px;
+}
+#contact {
+	width: 285px;
+	float: right;
+	border-left: 1px solid #77776F;
+	padding-left: 10px;
+	margin-left: 10px;
+	font-size: 0.9em;
+}
+#about {
+	width: 442px;
+	font-size: 0.9em;
+}
+dt {
+	font-size: 0.8em;
+	color: #77776F;
+}
+dd {
+	margin: 4px 0 4px 20px;
+	word-wrap: break-word;
+}
+#about ul {
+	list-style-type: disc;
+}
+#about ul li{
+	list-style-type: disc;
+	margin: 0;
+	padding: 0;
+	margin-left: 20px;
+}
+.detail-page-nav {
+	float: right;
+	font-size: 1em;
+}
+.updated {
+	font-size: 0.8em;
+	color: #77776F;
+	margin: 0;
+}
+</style>
+<!--[if IE]>
+<style type="text/css">
+  .clearfix {
+    zoom: 1;     /* triggers hasLayout */
+    }  /* Only IE can see inside the conditional comment
+    and read this CSS rule. Don't ever use a normal HTML
+    comment inside the CC or it will close prematurely. */
+</style>
+<![endif]-->
+</head>
+<body>
+<div id="content-bg">
+<div id="header-bg">
+<div id="header">
+<a href="http://www.archivists.org.au/"><img id="logo" src="/static/images/asa-logo.png"></img></a>
+<h1>Directory of Archives in Australia</h1>
+<div id="nav-options"><a href="/search/">Search</a> | <a href="/archives/">Browse</a></div>
+</div>
+</div>
+{% block content %}{% endblock %}
+<div id="footer-push"> </div>
+</div>
+<div id="footer-bg">
+<div id="footer">
+<div id="asa-byline"><a href="http://www.archivists.org.au/">Australian Society of Archivists</a></div>
+<div><a href="/">Home</a> &middot; <a href="/about/">About</a> &middot; <a href="/acknowledgements/">Acknowledgements</a> &middot; <a href="/contact/">Contact</a></div>
+</div>
+</div>
+</body>
+</html>

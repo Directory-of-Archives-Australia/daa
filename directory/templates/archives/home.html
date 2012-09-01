@@ -1,0 +1,14 @@
+{% extends 'archives/base.html' %}
+{% block title %}Directory of Archives in Australia{% endblock %}
+{% block content %}
+<div id="content">
+<p class="welcome">Find Australian organisations with archival holdings.</p>
+<p class="welcome">To get started, search for a topic or organisation.</p>
+<p class="welcome">You can also <a href="/archives/">browse the directory</a>.</p>
+<form id="search-form" action="/search/" method="get">
+	<input id="id_q-home" class="search-bar" type="text" name="q" value="" />
+	<button type="submit" class="search-button">Search &raquo;</button>
+</form>
+</div>
+
+{% endblock %}

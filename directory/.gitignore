@@ -1,0 +1,7 @@
+media/*
+collected_static/*
+settings_local.py
+settings_prod.py
+settings_old.py
+archives/*-old.py
+archives/fixtures/*
